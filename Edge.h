@@ -17,9 +17,11 @@ class edge
 public:
     edge();
     void connect(node*, node*); //connect a vertex to another may not need
+    void setTarget(node*); // sets the target node
     void setWeight(int); //sets the weight for a edge
     int getWeight(); //shows the weight 
     void getConnection(ostream&); //gets the connection and weight between vertex (ostream)?
 private:
     int weight; //we can use -1 to check if valid
+    node* target; // the destination for the connection 
 };

@@ -21,7 +21,7 @@ public:
     node();
     void setValue(string); //set value 
     string getValue();    //return value
-    void connect(node*);  //connect the vertexs
+    void connect(node*, int);  //connect the vertexs ---added the weight as a param
     void put(ostream&);   //show values and the connection
 private:
     string value;
