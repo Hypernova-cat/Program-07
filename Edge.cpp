@@ -15,29 +15,32 @@ using namespace std;
 
 edge::edge()
 {
+	target = NULL;
+	weight = -1;
 
 }
 
 
 /******************************
-* 
+* setTarget()
 ******************************/
-
+//will
 void edge::setTarget(node* t)
 {
-
+	target = t;
 }
 
 /******************************
-*
+* setWeight()
 ******************************/
-
+//will
 void edge::setWeight(int w)
 {
+	weight = w;
 
 }
 /******************************
-*
+* getWeight()
 ******************************/
 
 int edge::getWeight()
@@ -46,9 +49,9 @@ int edge::getWeight()
 }
 
 /******************************
-*
+* getConnection()
 ******************************/
-
+//will
 void edge::getConnection(ostream& out)
 {
 

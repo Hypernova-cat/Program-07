@@ -16,7 +16,7 @@ class edge
     friend class node;
 public:
     edge();
-    void connect(node*, node*); //connect a vertex to another may not need
+    //void connect(node*, node*); //connect a vertex to another may not need
     void setTarget(node*); // sets the target node
     void setWeight(int); //sets the weight for a edge
     int getWeight(); //shows the weight 

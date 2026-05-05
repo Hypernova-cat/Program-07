@@ -26,4 +26,5 @@ public:
 private:
     string value;
     edge* edges[Edge_MAX];
+    int numT;                   // the number of connections and the next open space for an edge
 };
