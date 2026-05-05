@@ -45,7 +45,7 @@ void edge::setWeight(int w)
 
 int edge::getWeight()
 {
-
+	return weight;
 }
 
 /******************************
@@ -54,5 +54,8 @@ int edge::getWeight()
 //will
 void edge::getConnection(ostream& out)
 {
+	out << target->getValue();
+	out << "\t";
+	out << weight;
 
 }

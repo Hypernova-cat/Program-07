@@ -31,7 +31,7 @@ node::node()
 
 void node::setValue(string arg)
 {
-
+	value = arg;
 }
 
 
@@ -41,7 +41,7 @@ void node::setValue(string arg)
 
 string node::getValue()
 {
-
+	return value;
 }
 
 /******************************
@@ -72,6 +72,16 @@ void node::connect(node* t, int w)
 // will
 void node::put(ostream& out)
 {
+	int i;
+	
+	out << value << ":" << endl;
 
+	for (i = 0; i < numT; i++)
+	{
+		out << "\t-> ";  // indent may not be needed
+		edges[i]->getConnection(out);  // output from edge
+		out << endl;
+	}
+	out << endl;
 
 }

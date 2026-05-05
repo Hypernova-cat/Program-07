@@ -29,4 +29,5 @@ public:
 
 private:
     node* vertex[MAX];
+    int nodes;
 };
