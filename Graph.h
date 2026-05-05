@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Node.h"
 using namespace std;
 #define MAX 50
 
@@ -28,6 +29,7 @@ public:
     int path(ostream&, string, string);
 
 private:
-    node* vertex[MAX];
+    node *vertex[MAX];
     int nodes;
+    int curr;
 };

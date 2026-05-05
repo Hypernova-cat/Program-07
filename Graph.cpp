@@ -46,7 +46,7 @@ void graph::show(ostream& out)
 
 bool graph::move(ostream& out, string arg)
 {
-
+    return false;
 }
 
 /******************************
@@ -75,8 +75,7 @@ bool graph::load(string arg)
 	string source, target;
 	int distance, i, s, t;
 	fstream in;
-
-   
+    node temp;
 
 	in.open(arg, ios::in);
 
@@ -87,6 +86,7 @@ bool graph::load(string arg)
 		if (in.good())
 		{
           // test param
+            cout << source << "   " << target << "   " << distance << endl;
            
 		}
 
@@ -98,10 +98,12 @@ bool graph::load(string arg)
             i++;
         }
         s = i;
-        if (i = nodes) // node not found in array test
+        //gets to this point in 1st loop
+        if (i = nodes && vertex[i]->getValue() != source) // node not found in array test
         {
-            vertex[i] = new node;
-            vertex[i]->setValue(source);
+            temp.setValue(source);
+            vertex[i] = &temp;
+            nodes++;
         }
 
         i = 0;
@@ -112,15 +114,20 @@ bool graph::load(string arg)
             i++;
         }
         t = i;
-        if (i = nodes) // node not found in array test
+        //gets to this point in 1st loop
+        if (i = nodes && vertex[i]->getValue() != target) // node not found in array test
         {
-            vertex[i] = new node;
-            vertex[i]->setValue(target);
+            
+            temp.setValue(target);
+            vertex[i] = &temp;
+            nodes++;
         }
         
         vertex[s]->connect(vertex[t], distance);
         
 	}
+    in.close();
+    return true;
 }
 
 /******************************
@@ -129,5 +136,5 @@ bool graph::load(string arg)
 
 int graph::path(ostream& out, string source, string target)
 {
-
+    return 42;
 }
