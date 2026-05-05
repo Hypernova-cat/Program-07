@@ -21,7 +21,7 @@ node::node()
 	value = "";
 
 	for (i = 0; i < Edge_MAX; i++)
-		edges[i] = NULL;
+		edges[i];
 
 }
 
@@ -50,11 +50,14 @@ string node::getValue()
 // will
 void node::connect(node* t, int w)
 {
+	cout << "node connect\n";
 	if (numT < Edge_MAX)
 	{
-		edges[numT] = new edge();
+		
 		edges[numT]->setTarget(t);
+		cout << "node connect\n";
 		edges[numT]->setWeight(w);
+		cout << "node connect\n";
 		numT++;
 	}
 	else

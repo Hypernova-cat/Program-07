@@ -86,7 +86,7 @@ bool graph::load(string arg)
 		if (in.good())
 		{
           // test param
-            cout << source << "   " << target << "   " << distance << endl;
+            cout << source << " -> " << target << "   " << distance << endl;
            
 		}
 
