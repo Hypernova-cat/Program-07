@@ -198,5 +198,99 @@ bool graph::load(string arg)
 
 int graph::path(ostream& out, string source, string target)
 {
-    return 42;
+    bool v[MAX] = { false };
+    int i, j, k, distance , s , t, c;
+    node temp;
+    k = 1000;
+    s = t = -1; // flags to see if they exist in the array
+    distance = 0;
+    for (i = 0; i < nodes; i++) // loop to test if the points are in the array.
+    {
+        if (vertex[i]->value == source) s = i;
+        if (vertex[i]->value == target) t = i;
+    }
+
+    if (s == -1 || t ==-1) return -1; // break out if either not in array
+    if (vertex[s]->numT == 0)
+    {
+        out << "No Paths from : " << source << endl;
+        return -1;
+    }
+    for (i = 0; i < vertex[s]->numT; i++)
+    {
+        j = vertex[s]->edges[i]->getWeight();
+       temp = vertex[s]->edges[i]->getTarget();
+
+       if (temp.getValue() == target)
+       {
+           out << "Direct path from : " << source << " ->" << target << endl;
+           out << "distance : " << j << endl;
+           return j;// target found in loop
+       }
+           
+
+       if (j< k)
+       {
+           t = i;
+           k = j;
+       }
+    }
+    //head of path
+   
+    temp = vertex[s]->edges[t]->getTarget();
+    out << source << " -> ";
+    for (i = 0; i < nodes; i++) // find lowest cost path node's index
+    {
+        if (vertex[i]->value == temp.value)
+        {
+            v[i] = true;
+            s = i; //update source index to continue the path from the new spot.
+        }
+    }
+    //----
+    // loop to find a path ======================================================
+    while (vertex[s]->numT > 0)
+    {
+        distance += k;
+        out << vertex[s]->getValue() << " -> ";
+
+        k = 1000; // reset k value
+
+
+        for (i = 0; i < vertex[s]->numT; i++)
+        {
+            j = vertex[s]->edges[i]->getWeight();
+            temp = vertex[s]->edges[i]->getTarget();
+
+            if (temp.getValue() == target)
+            {
+                distance += j;
+                out << temp.getValue() << endl;
+                out << "distance : " << distance << endl;
+                return distance; // target found in loop
+            }
+
+
+            if (j < k)
+            {
+                t = i;
+                k = j;
+            }
+        }
+
+
+        temp = vertex[s]->edges[t]->getTarget();
+
+        for (i = 0; i < nodes; i++) // find lowest cost path node's index
+        {
+            if (vertex[i]->value == temp.value) s = i; //update source index to continue the path from the new spot.
+        }
+
+    }
+    
+
+
+
+
+    return -1;
 }
