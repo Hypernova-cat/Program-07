@@ -18,6 +18,7 @@ public:
     edge();
     //void connect(node*, node*); //connect a vertex to another may not need
     void setTarget(node*); // sets the target node
+    node getTarget();
     void setWeight(int); //sets the weight for a edge
     int getWeight(); //shows the weight 
     void getConnection(ostream&); //gets the connection and weight between vertex (ostream)?

@@ -15,7 +15,8 @@ using namespace std;
 
 edge::edge()
 {
-	target = NULL;
+
+	target = nullptr;
 	weight = -1;
 
 }
@@ -27,16 +28,25 @@ edge::edge()
 //will
 void edge::setTarget(node* t)
 {
+
 	target = t;
 }
 
+/******************************
+* getTarget()
+******************************/
+//will
+node edge::getTarget()
+{
+	return *target;
+}
 /******************************
 * setWeight()
 ******************************/
 //will
 void edge::setWeight(int w)
 {
-	weight = w;
+	this->weight = w;
 
 }
 /******************************

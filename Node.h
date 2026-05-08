@@ -6,6 +6,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Edge.h"
 #define Edge_MAX 50
 using namespace std;
 
